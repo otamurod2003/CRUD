@@ -34,9 +34,9 @@
             <mat-list>
                 <mat-list-item *ngFor="let contact of contacts; let i=index">
                     <label>Contact data {{i+1}} {{contact.Name}}
-                        <button mat-raised-button color="secondary">READ</button>
-                        <button mat-raised-button color="primary">UPDATE</button>
-                        <button mat-raised-button color="warn">DELETE</button>
+                        <button style="margin: 2%;" mat-raised-button color="primary">READ</button>
+                        <button style="margin: 2%" mat-raised-button color="primary">UPDATE</button>
+                        <button style="margin: 2%" mat-raised-button color="warn">DELETE</button>
                     </label>
                 </mat-list-item>
             </mat-list>
