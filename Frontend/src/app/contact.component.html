@@ -1,43 +1,45 @@
-<mat-card>
-    <mat-card-content>
-        <h2>Enter the contact data</h2>
-        <form action="">
-            <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label> Enter name</mat-label>
-                <input [(ngModel)]="contact.Name" type="text" name="name" placeholder="Name..." matInput>
-            </mat-form-field>
+<div style="width:50%; float: left;">
+    <mat-card>
+        <mat-card-content>
+            <h2>Enter the contact data</h2>
+            <form action="">
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label> Enter name</mat-label>
+                    <input [(ngModel)]="contact.Name" type="text" name="name" placeholder="Name..." matInput>
+                </mat-form-field>
 
-            <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label> Enter adress</mat-label>
-                <input [(ngModel)]="contact.Adress" type="text" name="adress" placeholder="Adress..." matInput>
-            </mat-form-field>
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label> Enter adress</mat-label>
+                    <input [(ngModel)]="contact.Adress" type="text" name="adress" placeholder="Adress..." matInput>
+                </mat-form-field>
 
-            <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label> Enter phone</mat-label>
-                <input [(ngModel)]="contact.Phone" type="text" name="phone" placeholder="Phone..." matInput>
-            </mat-form-field>
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label> Enter phone</mat-label>
+                    <input [(ngModel)]="contact.Phone" type="text" name="phone" placeholder="Phone..." matInput>
+                </mat-form-field>
 
-            <mat-form-field class="fullWidth" appearance="outline">
-                <mat-label> Enter age</mat-label>
-                <input [(ngModel)]="contact.Age" type="number" name="age" placeholder="Age..." matInput min="1" max="200">
-            </mat-form-field>
-        </form>
-    </mat-card-content>
-    <mat-card-actions><button (click)="post()" mat-raised-button color="primary">Create</button></mat-card-actions>
-
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <mat-list>
-            <mat-list-item *ngFor="let contact of contacts; let i=index">
-
-                <label>Contact data {{i+1}} {{contacts.Name}}
-                    
-                        <button mat-raised-button color="primary">EDIT</button>
+                <mat-form-field class="fullWidth" appearance="outline">
+                    <mat-label> Enter age</mat-label>
+                    <input [(ngModel)]="contact.Age" type="number" name="age" placeholder="Age..." matInput min="1"
+                        max="200">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions><button (click)="post()" mat-raised-button color="primary">Create</button></mat-card-actions>
+    </mat-card>
+</div>
+<div style=" flex: auto;">
+    <mat-card>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let contact of contacts; let i=index">
+                    <label>Contact data {{i+1}} {{contact.Name}}
+                        <button mat-raised-button color="secondary">READ</button>
+                        <button mat-raised-button color="primary">UPDATE</button>
                         <button mat-raised-button color="warn">DELETE</button>
-                   
-                </label>
-            </mat-list-item>
-        </mat-list>
-    </mat-card-content>
-</mat-card>
+                    </label>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
