@@ -6,6 +6,7 @@ import { ApiService } from "./api.service";
 })
 export class ContactComponent
 {
+    contacts:any;
     constructor(private ApiSvc : ApiService){}
     
     contact = {
@@ -17,6 +18,12 @@ export class ContactComponent
     post(){
         this.ApiSvc.postContact(this.contact);
     }
+    ngOnInit(){
+        
+            this.ApiSvc.getContact().subscribe(response =>{
+              this.contacts = response;
+            })
+        }
     
     
 }

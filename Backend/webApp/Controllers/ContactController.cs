@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Xml;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using webApp.Models;
 
 namespace webApp.Controllers
@@ -15,16 +18,29 @@ namespace webApp.Controllers
             _context = context;
         }
         [HttpPost]
-        public void Post([FromBody] Contact name )
+        public async Task<IActionResult> Post([FromBody] Contact contact )
         {
-            _context.Contacts.Add(name);
-            _context.SaveChanges();
+            _context.Contacts.Add(contact);
+           await _context.SaveChangesAsync();
+
+            return Ok(contact);
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Contact>> Get()
         {
-            return _context.Contacts;
+                return _context.Contacts;
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] Contact contact)
+        {
+            if (id != contact.Id)
+                return BadRequest();
+
+            _context.Entry(contact).State =EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return Ok(contact);
         }
     }
 }

@@ -14,4 +14,12 @@ export class ApiService{
     getContact(){
        return this.http.get('https://localhost:44362/api/contact');
     }
+
+    // deleteContact(){
+    //     this.http.delete('https://localhost:44362/api/contact');
+    // }
+
+    // putContact(){
+    //     this.http.put('https://localhost:44362/api/contact',);
+    // }
 }
