@@ -17,6 +17,6 @@ export class ContactComponent
     post(){
         this.ApiSvc.postContact(this.contact);
     }
-
+    
     
 }

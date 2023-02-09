@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using webApp.Models;
 
 namespace webApp.Controllers
@@ -18,6 +19,12 @@ namespace webApp.Controllers
         {
             _context.Contacts.Add(name);
             _context.SaveChanges();
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Contact>> Get()
+        {
+            return _context.Contacts;
         }
     }
 }

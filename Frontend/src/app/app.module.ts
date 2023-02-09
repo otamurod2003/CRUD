@@ -12,12 +12,14 @@ import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import{HttpClientModule } from '@angular/common/http'
 import { ApiService } from './api.service';
-
+import { ContactsComponent } from './contacts/contacts.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent
+    ContactComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { ApiService } from './api.service';
     MatInputModule,
     MatCardModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
 
   ],
   providers: [ApiService],
