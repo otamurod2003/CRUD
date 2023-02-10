@@ -26,21 +26,23 @@ namespace webApp.Controllers
             return Ok(contact);
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Contact>> Get()
-        {
-                return _context.Contacts;
-        }
-
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Contact contact)
         {
             if (id != contact.Id)
                 return BadRequest();
 
-            _context.Entry(contact).State   =EntityState.Modified;
+            _context.Entry(contact).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return Ok(contact);
         }
+
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Contact>> Get()
+        {
+            return _context.Contacts;
+        }
+
     }
 }
