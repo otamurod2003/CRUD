@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
+import { Subscription } from "rxjs";
 import { ApiService } from "./api.service";
+import { Contact } from "./contact";
+
 @Component({
     selector: 'contact',
     templateUrl: './contact.component.html'
@@ -7,23 +10,27 @@ import { ApiService } from "./api.service";
 export class ContactComponent
 {
     contacts:any;
-    constructor(private ApiSvc : ApiService){}
+    subscription!: Subscription;
+    constructor(public ApiSvc : ApiService){}
     
-    contact = {
-        Name: "",
-        Adress:"",
-        Phone:"",
-        Age:"",
-    }
+     contact= new Contact;
+     
     post(){
         this.ApiSvc.postContact(this.contact);
     }
+
     ngOnInit(){
-        
-            this.ApiSvc.getContact().subscribe(response =>{
-              this.contacts = response;
-            })
-        }
-    
+ this.subscription = this.ApiSvc.getSelectedContact().subscribe(q=>{
+    this.contact = q;
+ })
+    }
+   ngOnDesrroy(){
+        this.subscription.unsubscribe();
+   }
+   resetContact()
+   {
+    this.contact = new Contact;
+   }
+
     
 }

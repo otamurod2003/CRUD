@@ -38,7 +38,7 @@ namespace webApp.Controllers
             if (id != contact.Id)
                 return BadRequest();
 
-            _context.Entry(contact).State =EntityState.Modified;
+            _context.Entry(contact).State   =EntityState.Modified;
             await _context.SaveChangesAsync();
             return Ok(contact);
         }

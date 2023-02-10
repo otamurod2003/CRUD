@@ -1,0 +1,17 @@
+<div style=" flex: auto;">
+    <mat-card>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item *ngFor="let contact of contacts; let i=index">
+                    <label >
+                        <span>Contact {{i+1}}</span>
+                        <button style="margin-left: 2%;" mat-raised-button color="primary" (click)="ApiSvc.selectContact(contact)">UPDATE</button>
+                        <button style="margin-left: 2%;" mat-raised-button color="warn">DELETE</button>
+                    </label>
+                    
+
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
