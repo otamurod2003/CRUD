@@ -1,8 +1,8 @@
 export class Contact{
     constructor(){}
-    id: number | undefined;
-    Age:number | undefined;
-    Name:string | undefined;
-    Adress: string | undefined;
-    Phone :string |undefined;
+    id!: number ;
+    Age!:number ;
+    Name!:string ;
+    Adress!: string ;
+    Phone !:string;
 }

@@ -1,17 +1,45 @@
 <div style=" flex: auto;">
     <mat-card>
         <mat-card-content>
-            <mat-list>
+            <table border="2">
+                <th>№</th>
+                <th>Name</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th>Age</th>
+                <th>Properties</th>
+                <tr *ngFor="let contact of contacts; let i=index">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        <span>{{contact.name}}</span>
+                    </td>
+                    <td>
+                        <span>{{contact.adress}}</span>
+                    </td>
+                    <td>
+                        <span>{{contact.phone}}</span>
+                    </td>
+                    <td>
+                        <span>{{contact.age}}</span>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="primary" (click)="ApiSvc.selectContact(contact)">UPDATE</button>
+                        <button mat-raised-button color="warn" onclick="alert('Hello world')">DELETE</button>
+                    </td>
+                </tr>
+            </table>
+            <!-- <mat-list>
                 <mat-list-item *ngFor="let contact of contacts; let i=index">
-                    <label >
-                        <span>Contact {{i+1}}</span>
-                        <button style="margin-left: 2%;" mat-raised-button color="primary" (click)="ApiSvc.selectContact(contact)">UPDATE</button>
-                        <button style="margin-left: 2%;" mat-raised-button color="warn">DELETE</button>
-                    </label>
+                    
+                        <span>Contact {{i+1}} {{contact.name}}</span>
+                        
+         
                     
 
-                </mat-list-item>
-            </mat-list>
+                </mat-list-item> -->
+            <!-- </mat-list> -->
         </mat-card-content>
     </mat-card>
 </div>

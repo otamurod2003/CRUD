@@ -27,8 +27,9 @@
             </form>
         </mat-card-content>
         <mat-card-actions>
-            <button (click)="post()" mat-raised-button color="primary">SEND</button>
-            <button (click)="resetContact()" mat-raised-button color="primary">SEND</button>
+            <button [disabled]="contact== null" (click)="post()" mat-raised-button color="primary">SEND</button>
+            <button style="margin-left:2% ;" (click)="resetContact()" mat-raised-button color="warn">NEW</button>
         </mat-card-actions>
+
     </mat-card>
 </div>

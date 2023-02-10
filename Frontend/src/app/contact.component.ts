@@ -9,28 +9,35 @@ import { Contact } from "./contact";
 })
 export class ContactComponent
 {
-    contacts:any;
+    //contacts:any;
+    contact= new Contact();
     subscription!: Subscription;
     constructor(public ApiSvc : ApiService){}
     
-     contact= new Contact;
+     
      
     post(){
-        this.ApiSvc.postContact(this.contact);
+        if(this.contact.id)
+            this.ApiSvc.putContact(this.contact);
+        else
+            this.ApiSvc.postContact(this.contact);     
+
     }
 
     ngOnInit(){
- this.subscription = this.ApiSvc.getSelectedContact().subscribe(q=>{
-    this.contact = q;
- })
+    this.subscription = this.ApiSvc.getSelectedContact().subscribe(result  =>{
+       this.contact = result;
+    })
     }
-   ngOnDesrroy(){
+   ngOnDestroy(){
         this.subscription.unsubscribe();
    }
    resetContact()
    {
     this.contact = new Contact;
    }
+
+  
 
     
 }
