@@ -44,5 +44,16 @@ namespace webApp.Controllers
             return _context.Contacts;
         }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id, Contact contact)
+        {
+            if (id != contact.Id)
+                return BadRequest(contact);
+            _context.Entry(contact).State = EntityState.Deleted;
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
     }
 }
