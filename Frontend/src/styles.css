@@ -4,3 +4,8 @@
 {
    width: 100%;
 }
+body tr td:hover{
+   background-color: black;
+   color: white;
+   cursor: pointer;
+}

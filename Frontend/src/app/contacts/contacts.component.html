@@ -1,7 +1,7 @@
-<div style=" flex: auto;">
+<div style=" flex: auto; width:auto;">
     <mat-card>
         <mat-card-content>
-            <table border="2">
+            <table border="2" >
                 <th>№</th>
                 <th>Name</th>
                 <th>Adress</th>
@@ -26,20 +26,10 @@
                     </td>
                     <td>
                         <button mat-raised-button color="primary" (click)="ApiSvc.selectContact(contact)">UPDATE</button>
-                        <button mat-raised-button color="warn" onclick="alert('Hello world')">DELETE</button>
+                        <button mat-raised-button color="warn" (click)="ApiSvc.deleteContact(contact)">DELETE</button>
                     </td>
                 </tr>
             </table>
-            <!-- <mat-list>
-                <mat-list-item *ngFor="let contact of contacts; let i=index">
-                    
-                        <span>Contact {{i+1}} {{contact.name}}</span>
-                        
-         
-                    
-
-                </mat-list-item> -->
-            <!-- </mat-list> -->
         </mat-card-content>
     </mat-card>
 </div>

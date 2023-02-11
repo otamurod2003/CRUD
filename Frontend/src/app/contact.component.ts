@@ -20,7 +20,11 @@ export class ContactComponent
         if(this.contact.id)
             this.ApiSvc.putContact(this.contact);
         else
-            this.ApiSvc.postContact(this.contact);     
+            this.ApiSvc.postContact(this.contact); 
+            
+            this.resetContact();
+            window.location.reload();
+        
 
     }
 

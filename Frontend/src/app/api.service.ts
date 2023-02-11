@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Subject, Subscription } from "rxjs";
+import { concat, Subject, Subscription } from "rxjs";
 import { Contact } from "./contact";
-import { ConstantPool } from "@angular/compiler";
+
 @Injectable()
 export class ApiService{
     selectedContact = new Subject<Contact>;
@@ -11,6 +11,7 @@ export class ApiService{
 
     selectContact(contact : Contact){
         this.selectedContact.next(contact);
+      
     }
 
     getSelectedContact(){
@@ -33,6 +34,10 @@ export class ApiService{
         this.http.put('https://localhost:44362/api/contact/'+contact.id,contact).subscribe(put =>{
             console.log(put);
         })
+    }
+    deleteContact(contact:Contact){
+        this.http.delete('https://localhost:44362/api/contact/'+contact.id);
+        
     }
 
 }
