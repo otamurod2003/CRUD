@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -27,10 +28,15 @@ namespace webApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<ContactContext>(options =>
-            {
-                options.UseInMemoryDatabase("Contacts");
-            });
+            services.AddDbContext<ContactContext>(
+                dbcontextoption => dbcontextoption.UseSqlServer(
+                    "Data Source=WIN-573FDVEHKM6;Initial Catalog=CrudDb;User ID=sa; Password=0t@murOd;"
+                    )
+                );
+            //services.AddDbContext<ContactContext>(options =>
+            //{
+            //    options.UseInMemoryDatabase("Contacts");
+            //});
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

@@ -3,23 +3,19 @@
         <mat-card-title><span *ngIf="contact.id !=null" style="text-align: center;">Change the contact</span></mat-card-title>
         <mat-card-title><span *ngIf="contact.id ==null">New contact</span></mat-card-title>
         <mat-card-content>
-
             <form action="">
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label> Enter name</mat-label>
                     <input [(ngModel)]="contact.Name" type="text" name="name"  placeholder="Name..." matInput>
                 </mat-form-field>
-
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label> Enter adress</mat-label>
                     <input [(ngModel)]="contact.Adress" type="text" name="adress" placeholder="Adress..." matInput>
                 </mat-form-field>
-
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label> Enter phone</mat-label>
                     <input [(ngModel)]="contact.Phone" type="text" name="phone" placeholder="Phone..." matInput>
                 </mat-form-field>
-
                 <mat-form-field class="fullWidth" appearance="outline">
                     <mat-label> Enter age</mat-label>
                     <input [(ngModel)]="contact.Age" type="number" name="age" placeholder="Age..." matInput min="1">
@@ -30,6 +26,5 @@
             <button [disabled]="!contact.Name || !contact.Age||!contact.Phone||!contact.Adress" (click)="post()" mat-raised-button color="primary">SEND</button>
             <button style="margin-left:2% ;" (click)="resetContact()" mat-raised-button color="warn">NEW</button>
         </mat-card-actions>
-
     </mat-card>
 </div>
