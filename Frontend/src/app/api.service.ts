@@ -36,7 +36,8 @@ export class ApiService{
         })
     }
     deleteContact(contact:Contact){
-        this.http.delete('https://localhost:44362/api/contact/'+contact.id);
+        
+        return this.http.delete('https://localhost:44362/api/contact/'+contact.id);
         
     }
 

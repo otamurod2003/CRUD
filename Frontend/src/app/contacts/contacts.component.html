@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         <button mat-raised-button color="primary" (click)="ApiSvc.selectContact(contact)">UPDATE</button>
-                        <button mat-raised-button color="warn" (click)="ApiSvc.deleteContact(contact)">DELETE</button>
+                        <button mat-raised-button color="warn" (click)="ApiSvc.deleteContact(contact)" onclick="return confirm('Are you sure want delete this recoord ?');">DELETE</button>
                     </td>
                 </tr>
             </table>

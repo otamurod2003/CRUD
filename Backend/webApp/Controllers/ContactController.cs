@@ -61,13 +61,12 @@ namespace webApp.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id, Contact contact)
+        public IActionResult Delete(int id, Contact contact)
         {
             if (id != contact.Id)
-                return BadRequest(contact);
-            _context.Entry(contact).State = EntityState.Deleted;
-            await _context.SaveChangesAsync();
-
+                return BadRequest();
+             _context.Entry(contact).State = EntityState.Deleted;
+             _context.SaveChangesAsync();
             return Ok();
         }
 
